@@ -18,7 +18,11 @@ public class Lab0407 {
         // ArrayList of titles will be returned.  If the column number is 5 then an ArrayList of
         // credit hours (stored as Strings) will be returned.  Call this function 5 times to create
         // the 5 ArrayLists for each of the columns of data.
-
+        ArrayList<String> courses = getColumnData("courses.txt", 1);
+        ArrayList<String> titles = getColumnData("courses.txt", 2);
+        ArrayList<String> stages = getColumnData("courses.txt", 3);
+        ArrayList<String> areas = getColumnData("courses.txt", 4);
+        ArrayList<String> hours = getColumnData("courses.txt", 5);
         
 
         // TODO 2 (20 points) - Create and call a user-defined function that given two indexes,
@@ -45,4 +49,21 @@ public class Lab0407 {
 
 
     }
+
+    // TODO 1 - ArrayList<String> courses = getColumnData("courses.txt", 2);
+    public static ArrayList<String> getColumnData(String filename, int columnNumber) {
+        ArrayList<String> ColumnData = new ArrayList<String>();
+        columnNumber -= 1;
+        try (Scanner sc = new Scanner(new File(filename))) {
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] parts = line.split("\\|");
+                ColumnData.add(parts[columnNumber]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return ColumnData;
+    }
+
 }
