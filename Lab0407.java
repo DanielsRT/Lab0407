@@ -50,8 +50,8 @@ public class Lab0407 {
 
         // TODO 4 (20 points) - Write a function that returns an ArrayList of titles for all
         // courses that have an {X} fun rating where X is a parameter to this function.
-
-
+        ArrayList<String> funParameterTitles = getTitlesThatMeetParameter(crseRatings, 5);
+        System.out.println(funParameterTitles);
 
         // TODO 5 (20 points) - What are the titles of courses with the sum of ratings at least {X}
         // where X is a parameter to this function.
@@ -62,7 +62,7 @@ public class Lab0407 {
 
     // TODO 1 - ArrayList<String> courses = getColumnData("courses.txt", 2);
     public static ArrayList<String> getColumnData(String filename, int columnNumber) {
-        ArrayList<String> ColumnData = new ArrayList<String>();
+        ArrayList<String> ColumnData = new ArrayList<>();
         columnNumber -= 1;
         try (Scanner sc = new Scanner(new File(filename))) {
             while (sc.hasNextLine()) {
@@ -101,6 +101,14 @@ public class Lab0407 {
         hours.set(ndx2, temp);
     }
 
-
-
+    // TODO 4 - ArrayList<String> funParameterTitles = getTitlesThatMeetParameter(5);
+    public static ArrayList<String> getTitlesThatMeetParameter(int[][] crseRatings, int paramter) {
+        ArrayList<String> selectedTitles = new ArrayList<>();
+        for (int ndx = 0; ndx < courses.size(); ndx++) {
+            if (crseRatings[ndx][3] == paramter) {
+                selectedTitles.add(titles.get(ndx));
+            }
+        }
+        return selectedTitles;
+    }
 }
