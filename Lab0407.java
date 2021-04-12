@@ -51,11 +51,10 @@ public class Lab0407 {
         // TODO 4 (20 points) - Write a function that returns an ArrayList of titles for all
         // courses that have an {X} fun rating where X is a parameter to this function.
         ArrayList<String> funParameterTitles = getTitlesThatMeetParameter(crseRatings, 5);
-        System.out.println(funParameterTitles);
 
         // TODO 5 (20 points) - What are the titles of courses with the sum of ratings at least {X}
         // where X is a parameter to this function.
-
+        getTitlesWithRatingsSum(crseRatings, 20);
 
 
     }
@@ -111,4 +110,17 @@ public class Lab0407 {
         }
         return selectedTitles;
     }
+
+    // TODO 5 - getTitlesWithRatingsSum(crseRatings, 20);
+    public static void getTitlesWithRatingsSum(int[][] crseRatings, int paramter) {
+        System.out.println("Courses with a sum of ratings of at least " + paramter + ":");
+        for (int ndx = 0; ndx < courses.size(); ndx++) {
+            int ratingsSum = crseRatings[ndx][0] + crseRatings[ndx][1] +
+                             crseRatings[ndx][2] + crseRatings[ndx][3];
+            if (ratingsSum >= paramter) {
+                System.out.println("  " + titles.get(ndx));
+            }
+        }
+    }
+
 }
