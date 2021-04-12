@@ -4,6 +4,11 @@ import java.io.*;
 public class Lab0407 {
 
     static Random rand = new Random();
+    static ArrayList<String> courses = new ArrayList<String>();
+    static ArrayList<String> titles = new ArrayList<String>();
+    static ArrayList<String> stages = new ArrayList<String>();
+    static ArrayList<String> areas = new ArrayList<String>();
+    static ArrayList<String> hours = new ArrayList<String>();
 
     public static void main(String[] args) {
 
@@ -18,18 +23,17 @@ public class Lab0407 {
         // ArrayList of titles will be returned.  If the column number is 5 then an ArrayList of
         // credit hours (stored as Strings) will be returned.  Call this function 5 times to create
         // the 5 ArrayLists for each of the columns of data.
-        ArrayList<String> courses = getColumnData("courses.txt", 1);
-        ArrayList<String> titles = getColumnData("courses.txt", 2);
-        ArrayList<String> stages = getColumnData("courses.txt", 3);
-        ArrayList<String> areas = getColumnData("courses.txt", 4);
-        ArrayList<String> hours = getColumnData("courses.txt", 5);
+        courses = getColumnData("courses.txt", 1);
+        titles = getColumnData("courses.txt", 2);
+        stages = getColumnData("courses.txt", 3);
+        areas = getColumnData("courses.txt", 4);
+        hours = getColumnData("courses.txt", 5);
         
 
         // TODO 2 (20 points) - Create and call a user-defined function that given two indexes,
         // swaps the data for those two courses.  For example, if the two indices are 0 and 1, then
         // the first two courses in the ArrayLists must be exchanged.
-
-
+        swapCourseData(0, 1);
 
         // TODO 3 (20 points) - The real fun of this project is to make it easy for users to rate
         // XCore courses.  These ratings are for reading, writing, thinking,and fun.  For each of
@@ -66,4 +70,28 @@ public class Lab0407 {
         return ColumnData;
     }
 
+    // TODO 2 - swapCourseData(0, 1);
+    public static void swapCourseData(int ndx1, int ndx2) {
+        String temp;
+        
+        temp = courses.get(ndx1);
+        courses.set(ndx1, courses.get(ndx2));
+        courses.set(ndx2, temp);
+
+        temp = titles.get(ndx1);
+        titles.set(ndx1, titles.get(ndx2));
+        titles.set(ndx2, temp);
+
+        temp = stages.get(ndx1);
+        stages.set(ndx1, stages.get(ndx2));
+        stages.set(ndx2, temp);
+
+        temp = areas.get(ndx1);
+        areas.set(ndx1, areas.get(ndx2));
+        areas.set(ndx2, temp);
+
+        temp = hours.get(ndx1);
+        hours.set(ndx1, hours.get(ndx2));
+        hours.set(ndx2, temp);
+    }
 }
