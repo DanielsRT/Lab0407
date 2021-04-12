@@ -1,5 +1,5 @@
-
-
+import java.util.*;
+import java.io.*;
 public class Lab0407 {
 
     static Random rand = new Random();
