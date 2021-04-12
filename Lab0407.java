@@ -39,7 +39,13 @@ public class Lab0407 {
         // XCore courses.  These ratings are for reading, writing, thinking,and fun.  For each of
         // the courses, randomly generate 4 ratings in the range 0..6. The 4 ratings must be stored
         // in an array.  Don't write a function for this, do this in main().
-
+        int[][] crseRatings = new int[courses.size()][4];
+        for (int ndx = 0; ndx < courses.size(); ndx++) {
+            crseRatings[ndx][0] = rand.nextInt(7); // reading rating
+            crseRatings[ndx][1] = rand.nextInt(7); // writing rating
+            crseRatings[ndx][2] = rand.nextInt(7); // thinking rating
+            crseRatings[ndx][3] = rand.nextInt(7); // fun rating
+        }
 
 
         // TODO 4 (20 points) - Write a function that returns an ArrayList of titles for all
@@ -94,4 +100,7 @@ public class Lab0407 {
         hours.set(ndx1, hours.get(ndx2));
         hours.set(ndx2, temp);
     }
+
+
+
 }
